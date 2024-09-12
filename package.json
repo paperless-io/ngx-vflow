@@ -4,8 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
+    "build": "ng build --project ngx-vflow-lib",
+    "watch": "ng build --project ngx-vflow-lib --watch --configuration development",
     "test": "ng test",
     "gh-pages": "ng build ngx-vflow-demo && npx angular-cli-ghpages --cname=www.ngx-vflow.org --dir=dist/ngx-vflow-demo"
   },
