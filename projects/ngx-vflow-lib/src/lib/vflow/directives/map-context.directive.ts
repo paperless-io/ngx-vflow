@@ -71,6 +71,7 @@ export class MapContextDirective implements OnInit {
 
   public ngOnInit(): void {
     this.zoomBehavior = zoom<SVGSVGElement, unknown>()
+      .filter(event => event.type === 'wheel' || event.button === 1 || event.button === 2)
       .scaleExtent([this.flowSettingsService.minZoom(), this.flowSettingsService.maxZoom()])
       .on('start', (event: ZoomEvent) => this.onD3zoomStart(event))
       .on('zoom', (event: ZoomEvent) => this.handleZoom(event))
