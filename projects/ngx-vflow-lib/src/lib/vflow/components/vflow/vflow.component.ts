@@ -101,6 +101,7 @@ export class VflowComponent implements OnInit {
   private nodeRenderingService = inject(NodeRenderingService)
   private flowSettingsService = inject(FlowSettingsService)
   private componentEventBusService = inject(ComponentEventBusService)
+  private selectionService = inject(SelectionService)
   private injector = inject(Injector)
   // #endregion
 
@@ -345,7 +346,40 @@ export class VflowComponent implements OnInit {
   public documentPointToFlowPoint(point: Point): Point {
     return this.spacePointContext.documentPointToFlowPoint(point)
   }
-  // #endregion
+
+  /**
+   * Unselect everything
+   */
+  public unselect() {
+    this.selectionService.select(null);
+  }
+
+  /**
+   * Select node with id
+   * @param id The node id
+   */
+  public selectNode(id: string) {
+    const node = this.flowEntitiesService.getNode(id);
+    if (!node) {
+      return;
+    }
+
+    this.selectionService.select(node);
+  }
+
+  /**
+   * Select edge with id
+   * @param id The edge id
+   */
+  public selectEdge(id: string) {
+    const edge = this.flowEntitiesService.getEdge(id);
+    if (!edge) {
+      return;
+    }
+
+    this.selectionService.select(edge);
+  }
+  //#endregion
 
   protected trackNodes(idx: number, { node }: NodeModel) {
     return node
