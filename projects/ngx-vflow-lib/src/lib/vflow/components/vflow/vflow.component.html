@@ -4,6 +4,7 @@
   rootPointer
   flowSizeController
   class="root-svg"
+  (contextmenu)="$event.preventDefault()"
   #flow
 >
   <defs [markers]="markers()" flowDefs />
