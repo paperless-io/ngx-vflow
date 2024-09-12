@@ -59,6 +59,10 @@ export class FlowEntitiesService {
     return this.nodes().find(({ node }) => node.id === id) as NodeModel<T> | undefined
   }
 
+  public getEdge<T>(id: string) {
+    return this.edges().find(({ edge }) => edge.id === id) as EdgeModel | undefined
+  }
+
   public getDetachedEdges() {
     return this.edges().filter(e => e.detached())
   }
