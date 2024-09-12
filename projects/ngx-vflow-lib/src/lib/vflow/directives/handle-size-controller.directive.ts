@@ -1,5 +1,5 @@
-import { AfterViewInit, Directive, ElementRef, Input, inject } from '@angular/core';
-import { HandleModel } from '../models/handle.model';
+import {AfterViewInit, Directive, ElementRef, Input, inject} from '@angular/core';
+import {HandleModel} from '../models/handle.model';
 
 @Directive({ selector: '[handleSizeController]' })
 export class HandleSizeControllerDirective implements AfterViewInit {
@@ -13,7 +13,8 @@ export class HandleSizeControllerDirective implements AfterViewInit {
     const rect = element.getBBox()
 
     const stroke = getChildStrokeWidth(element)
-    this.handleModel.size.set({
+
+    this.handleModel?.size?.set?.({
       width: rect.width + stroke,
       height: rect.height + stroke
     })
